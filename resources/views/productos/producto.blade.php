@@ -8,115 +8,29 @@
 <div class="table-responsive">
   <table class="table table-condensed table-striped">
     
+    @foreach($productos as $producto)    
+    
       <tr>
         <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe1.jpg" class="listado">
+          <a href="{{ route('articulo', ['id' => $producto->id_producto]) }}">
+              <?php
+                $ruta_img = "img/productos/p".$producto->id_producto.".jpg";
+                if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/productos/p0.jpg";}
+              ?>         
+              <img src="{{ $ruta_foto }}" class="listado">
           </a>
         </td>
         <td>
-          <a href="productos.detalle">
+          <a href="{{ route('articulo', ['id' => $producto->id_producto]) }}">
           <div>
-            <h3>Café Capuccino</h3>
-            <span style="text-align: right;"><h3>$ 2.500</h3></span>
+            <h3>{{ $producto->producto }}</h3>
+            <span style="text-align: right;"><h3><?php echo "$ ".number_format($producto->precio,0,',','.'); ?></h3></span>
           </div>
           </a>
         </td>  
       </tr>
-
-      <tr>
-        <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe5.jpg" class="listado">
-          </a>
-        </td>
-        <td>
-          <a href="productos.detalle">
-          <div>
-            <h3>Café Mocaccino</h3>
-            <span style="text-align: right;"><h3>$ 3.000</h3></span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-
-      <tr>
-        <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe6.jpg" class="listado">
-          </a>
-        </td>
-        <td>
-          <a href="productos.detalle">
-          <div>
-            <h3>Café con Leche</h3>
-            <span style="text-align: right;"><h3>$ 1.500</h3></span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-
-      <tr>
-        <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe2.jpg" class="listado">
-          </a>
-        </td>
-        <td>
-          <a href="productos.detalle">
-          <div>
-            <h3>Café con Canela</h3>
-            <span style="text-align: right;"><h3>$ 1.500</h3></span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe4.jpg" class="listado">
-          </a>
-        </td>
-        <td>
-          <a href="productos.detalle">
-          <div>
-            <h3>Café con Crema</h3>
-            <span style="text-align: right;"><h3>$ 3.500</h3></span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe7.jpg" class="listado">
-          </a>
-        </td>
-        <td>
-          <a href="productos.detalle">
-          <div>
-            <h3>Café Negro</h3>
-            <span style="text-align: right;"><h3>$ 1.500</h3></span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-
-      <tr>
-        <td width="120px">
-          <a href="productos.detalle">
-            <img src="img/productos/cafe3.jpg" class="listado">
-          </a>
-        </td>
-        <td>
-          <a href="productos.detalle">
-          <div>
-            <h3>Café Tinto</h3>
-            <span style="text-align: right;"><h3>$ 1.500</h3></span>
-          </div>
-          </a>
-        </td>  
-      </tr>
+      
+    @endforeach
 
   </table>
 </div>

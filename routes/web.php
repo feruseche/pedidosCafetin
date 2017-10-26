@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('inicio.app');
 });
 
-Route::get('/categorias.categoria', function () {
-    return view('categorias.categoria');
-});
-
 Route::get('/productos.producto', function () {
     return view('productos.producto');
 });
@@ -31,9 +27,13 @@ Route::get('/vendedores.vendedores', function () {
     return view('vendedores.vendedores');
 });
 
-Route::get('/clientes.clientes', function () {
-    return view('clientes.clientes');
-});
-Route::get('/dispositivos.dispositivos', function () {
-    return view('dispositivos.dispositivos');
-});
+Route::get('/categorias.categoria','CategoriasController@index');
+
+Route::name('detalle')->get('/productos.producto.{id}', 'ProductosController@show');
+Route::name('articulo')->get('/productos.detalle.{id}', 'ProductosController@show_articulo');
+
+Route::get('/clientes.clientes','ClientesController@index');
+
+Route::get('/vendedores.vendedores','VendedoresController@index');
+
+

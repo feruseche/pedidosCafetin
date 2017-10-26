@@ -8,154 +8,28 @@
 <div class="table-responsive">
   <table class="table table-condensed table-striped">
     
+    @foreach($clientes as $cliente)
       <tr>
         <td width="100px">
           <a href="clientes.detalle">
-            <img src="img/clientes/c1.jpg" class="listado img-circle">
+            <?php 
+              $ruta_img = "img/clientes/c".$cliente->id_cliente.".jpg";
+              if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/c0.jpg";}
+            ?>            
+            <img src="{{ $ruta_foto }}" class="listado img-circle" alt="foto del cliente">
+            
           </a>
         </td>
         <td>
           <a href="clientes.detalle">
           <div>
-            <h3>Camila Márquez Plaza</h3>
-            <span>Joyería Golden</span><br />
-            <span>CC Alejandría</span>
+            <h3>{{$cliente->cliente}}</h3>
+            <span>{{$cliente->ubicacion}}</span><br />
           </div>
           </a>
         </td>  
       </tr>
-
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c2.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Sandra Arturo Sánchez</h3>
-            <span>Relojería Suiza</span><br />
-            <span>CC Alejandría</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c3.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Alexa Ortega Díaz</h3>
-            <span>Perfumes Importados</span><br />
-            <span>CC Plaza Los Andes</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c4.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Gregorio Ortega</h3>
-            <span>ToTTo Shop</span><br />
-            <span>CC Alejandría</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c5.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Yohanna Useche</h3>
-            <span>Zapatería Shoes SAS</span><br />
-            <span>CC Plaza Los Andes</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c6.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Stella Maris Contreras</h3>
-            <span>Zapatería Shoes SAS</span><br />
-            <span>CC Plaza Los Andes</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c7.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Krishna Thelema Useche</h3>
-            <span>Zapatería Shoes SAS</span><br />
-            <span>CC Plaza Los Andes</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c8.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Nohelia Contreras</h3>
-            <span>Zapatería Shoes SAS</span><br />
-            <span>CC Plaza Los Andes</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-      <tr>
-        <td width="100px">
-          <a href="clientes.detalle">
-            <img src="img/clientes/c9.jpg" class="listado img-circle">
-          </a>
-        </td>
-        <td>
-          <a href="clientes.detalle">
-          <div>
-            <h3>Alejandra Guzmán</h3>
-            <span>Zapatería Shoes SAS</span><br />
-            <span>CC Plaza Los Andes</span>
-          </div>
-          </a>
-        </td>  
-      </tr>
-
+    @endforeach
 
   </table>
 </div>

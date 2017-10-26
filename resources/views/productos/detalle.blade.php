@@ -1,14 +1,20 @@
 @extends('inicio.app')
 @section('contenido')
 
+@foreach ($productos as $producto)
+
 <div class="content">
 
     <a href="categorias.categoria">
     <div class="card-producto-app">
-      <img src="img/productos/cafe1.jpg">
-      <div class="title-card-producto-app"><h1>CAFÉ CAPUCCINO</h1></div>
-      <div class="body-card-producto-app">Delicioso Café Capuccino, realizado con el mejor café de nuestra tierra.</div>
-      <div class="precio-card-producto-app">Comprar $ 2.500</div>
+      <?php
+        $ruta_img = "img/productos/p".$producto->id_producto.".jpg";
+        if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/productos/p0.jpg";}
+      ?>         
+      <img src="{{ $ruta_foto }}">
+      <div class="title-card-producto-app"><h1>{{ $producto->producto }}</h1></div>
+      <div class="body-card-producto-app">{{ $producto->descripcion }}</div>
+      <div class="precio-card-producto-app">Comprar <?php echo "$ ".number_format($producto->precio,0,',','.'); ?></div>
 
       <div class="social-card-producto-app">
         <ul class="social-header list-inline text-sm-right">
@@ -39,9 +45,11 @@
         </ul>
       </div><!-- div col redes sociales -->
       <div class="footer-card-producto-app"></div>        
-    </div> <!-- final de la card -->
+    </div> 
     </a>
 
-</div><!-- capa de contenido principal  ->
+</div>
+
+@endforeach
 
 @endsection

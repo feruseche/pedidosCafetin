@@ -25,7 +25,6 @@ a{
     -webkit-border-radius: 10px 10px;
     -moz-border-radius: 10px 10px;   
 
-
 }
 
 .card-categoria-app:hover{
@@ -41,6 +40,7 @@ a{
 }
 
 .title-card-categoria-app{
+	height: 50px;
 	text-align: center;
 	font-weight: bolder;
 	text-shadow: 3px 3px 10px #999;
@@ -115,7 +115,7 @@ a{
 	padding-left: 10px;
 	padding-bottom: 5px;
 	background-color: white;
-	height: 50px;
+	height: 80px;
 	text-align: center;
 }
 
