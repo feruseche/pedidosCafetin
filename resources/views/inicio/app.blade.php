@@ -15,6 +15,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="css/_all-skins.min.css">
+    <link rel="stylesheet" type="text/css" href="css/cafetin.css">
+
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon.ico">
 
@@ -116,9 +118,10 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="historias.historia"><i class="fa fa-circle-o"></i> Productos</a></li>
-                <li><a href="historias.historia"><i class="fa fa-circle-o"></i> Vendedores</a></li>
-                <li><a href="historias.historia"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="categorias.categoria"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                <li><a href="productos.producto"><i class="fa fa-circle-o"></i> Productos</a></li>
+                <li><a href="vendedores.vendedores"><i class="fa fa-circle-o"></i> Vendedores</a></li>
+                <li><a href="clientes.clientes"><i class="fa fa-circle-o"></i> Clientes</a></li>
               </ul>
             </li>
             
@@ -174,6 +177,7 @@
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         @yield('contenido')
+
         <!-- Main content -->
       </div><!-- /.content-wrapper -->
       <!--Fin-Contenido-->
@@ -181,7 +185,7 @@
         <div class="pull-right hidden-xs">
           <b>Versión</b> 1.7.0
         </div>
-        <strong>Copyright &copy; 2015-2025 <a href="www.dentalis.com.ve">Dentalis&reg;</a></strong>
+        <strong>Copyright &copy; 2015-2025 <a href="www.tucafe.com.ve">Café-Apps&reg;</a></strong>
       </footer>
 
       

@@ -1,0 +1,145 @@
+/* CAPA PARA ALINEAR LAS CARDS EN LOS MODULOS DE CATEGORIAS Y RODUCTOS */
+
+.contenido{
+	margin: 0 auto;
+	padding: 0px;
+}
+
+a{
+    outline: none;
+}
+
+/* DISEÑO PARA LAS CARDS DE CATEGORIAS */
+
+.card-categoria-app{
+	width: 125px;
+	border-color: blue;
+	display: inline-block;
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 25PX;
+	background-color: white;
+	padding: 0px;
+
+    -webkit-border-radius: 10px 10px;
+    -moz-border-radius: 10px 10px;   
+
+
+}
+
+.card-categoria-app:hover{
+	box-shadow: 5px 5px 20px #999;
+	border-width: 5px;
+}
+
+.card-categoria-app img{
+	width: 125px;
+	height: 100px;
+	box-shadow: 3px 3px 10px #999;
+
+}
+
+.title-card-categoria-app{
+	text-align: center;
+	font-weight: bolder;
+	text-shadow: 3px 3px 10px #999;
+
+}
+
+.footer-card-categoria-app{
+	text-align: right;
+	box-shadow: 3px 3px 10px #999;
+	background-color: #222D32;
+	color: white;
+	padding-right: 5px;
+}
+
+.footer-card-categoria-app span{
+	font-size: 11px;
+}
+
+/* clase de la imagen para el listado de productos   */
+
+.listado{
+	vertical-align: center;
+ 	width: 90px;
+ 	height:90px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* DISEÑO PARA LAS CARDS DE LOS PRODUCTOS */
+
+.card-producto-app{
+	width: 300px;
+	border-color: blue;
+
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 25PX;
+	background-color: white;
+	padding: 0px;
+
+    -webkit-border-radius: 10px 10px;
+    -moz-border-radius: 10px 10px;   
+
+
+}
+
+.card-producto-app:hover{
+	box-shadow: 5px 5px 20px #999;
+	border-width: 5px;
+}
+
+.card-producto-app img{
+	width: 300px;
+	height: 200px;
+	box-shadow: 3px 3px 10px #999;
+
+}
+
+.title-card-producto-app{
+	text-align: center;
+	font-weight: bolder;
+	text-shadow: 3px 3px 10px #999;
+
+}
+
+.body-card-producto-app{
+
+	font-size: 18px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	background-color: white;
+	height: 50px;
+	text-align: center;
+}
+
+.precio-card-producto-app{
+	padding: 20px;
+	font-size: 36px;
+	text-align: right;
+
+}
+
+.social-card-producto-app{
+	text-align: center;
+	padding-bottom: 20px
+}
+
+.footer-card-producto-app{
+	text-align: right;
+	box-shadow: 3px 3px 10px #999;
+	background-color: #222D32;
+	color: white;
+	padding-right: 5px;
+}
+
+.footer-card-producto-app span{
+	font-size: 11px;
+}
+
