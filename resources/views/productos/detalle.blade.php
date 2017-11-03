@@ -1,9 +1,9 @@
 @extends('inicio.app')
 @section('contenido')
 
-@foreach ($productos as $producto)
-
 <div class="content">
+
+  @foreach ($productos as $producto)
 
     <a href="categorias.categoria">
     <div class="card-producto-app">
@@ -47,9 +47,9 @@
       <div class="footer-card-producto-app"></div>        
     </div> 
     </a>
+  
+  @endforeach
 
 </div>
-
-@endforeach
 
 @endsection

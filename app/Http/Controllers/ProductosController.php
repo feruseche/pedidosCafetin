@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
+use App\Producto;
+
+use App\Categorias;
+
 class ProductosController extends Controller
 {
-    //
+    // 
 
 
  public function filtro($id_categoria)
@@ -52,5 +56,24 @@ class ProductosController extends Controller
         return view('productos.detalle',["productos"=>$productos]);   
        
     }
+
+    public function create(){
+
+        $categorias = Categorias::all();
+        return view('insertar.producto.create',['categorias'=>$categorias]);
+    }
+
+    public function postInsert(Request $r){
+
+        producto::insert(['producto'=>$r->nombreproducto,
+                          'descripcion'=>$r->describeproducto,
+                          'precio'=>$r->precioproducto,
+                          'id_categoria'=>$r->categoria
+                        ]);
+
+        return back();
+        
+    }
+
 
 }

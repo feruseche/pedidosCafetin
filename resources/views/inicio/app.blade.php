@@ -48,20 +48,32 @@
               <!-- User Account: style can be found in dropdown.less -->
                <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Fernando Useche</span>
+              @guest
+                <img src="img/guest.jpg" class="user-image" alt="User Image">
+              @else
+                <img src="img/usuarios/u{{ Auth::user()->id}}.jpg" class="user-image" alt="User Image">
+              @endguest
+              <span class="hidden-xs">
+                @guest
+                  Invitado
+                @else
+                  {{ Auth::user()->name }} 
+                @endguest
+            </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
+              
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Fernando Useche - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
+                @guest
+                  <img src="img/guest.jpg" class="img-circle" alt="User Image">
+                  <p><small>Invitado</small></p>
+                @else
+                  <img src="img/usuarios/u{{ Auth::user()->id}}.jpg" class="img-circle" alt="User Image">
+                  <p>{{ Auth::user()->name }}<small>{{ Auth::user()->email }}</small></p>
+                @endguest
               </li>
-              <!-- Menu Body -->
+              <!-- Menu Body 
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
@@ -74,16 +86,22 @@
                     <a href="#">Friends</a>
                   </div>
                 </div>
-                <!-- /.row -->
+              -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
+                @guest
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="login" class="btn btn-default btn-flat">Login</a>
                 </div>
+                @else
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 </div>
+                @endguest
               </li>
             </ul>
           </li>
@@ -100,10 +118,18 @@
           <!-- Sidebar user panel -->
             <div class="user-panel">
               <div class="pull-left image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                @guest
+                  <img src="img/guest.jpg" class="img-circle" alt="User Image">
+                @else
+                  <img src="img/usuarios/u{{ Auth::user()->id}}.jpg" class="img-circle" alt="User Image">
+                @endguest
               </div>
               <div class="pull-left info">
-                <p>Fernando Useche</p>
+                @guest
+                  Invitado
+                @else
+                  <p>{{ Auth::user()->name }}</p>
+                @endguest
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </div>
             </div>
@@ -154,6 +180,9 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="vademecum.index"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                <li><a href="insertar.categoria"><i class="fa fa-circle-o"></i> Registrar Categorias</a></li>
+                <li><a href="insertar.producto"><i class="fa fa-circle-o"></i> Registrar Nuevos Productos</a></li>
+                <li><a href="insertar.cliente"><i class="fa fa-circle-o"></i> Registrar Nuevos Clientes</a></li>
               </ul>
             </li>
              <li>

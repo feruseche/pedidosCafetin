@@ -4,9 +4,6 @@
 <div class="row">
 <div class="content">
 
-<div class="table-responsive">
-  <table class="table table-condensed table-striped">
-
   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       @if ($searchText)
 
@@ -16,6 +13,9 @@
       
       @include('clientes.search')
   </div>  
+
+<div class="table-responsive">
+  <table class="table table-condensed table-striped">
     
     @foreach($clientes as $cliente)
       <tr>

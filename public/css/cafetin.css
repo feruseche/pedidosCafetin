@@ -84,13 +84,13 @@ a{
 
     -webkit-border-radius: 10px 10px;
     -moz-border-radius: 10px 10px;   
-
+	box-shadow: 5px 5px 20px #999;
 
 }
 
 .card-producto-app:hover{
-	box-shadow: 5px 5px 20px #999;
-	border-width: 5px;
+	box-shadow: 7px 7px 30px #999;
+	border-width: 7px;
 }
 
 .card-producto-app img{
