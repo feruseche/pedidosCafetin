@@ -4,6 +4,9 @@
 <div class="row">
 <div class="content">
 
+<div class="table-responsive">
+  <table class="table table-condensed table-striped">
+
   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
       @if ($searchText)
 
@@ -13,9 +16,6 @@
       
       @include('clientes.search')
   </div>  
-
-<div class="table-responsive">
-  <table class="table table-condensed table-striped">
     
     @foreach($clientes as $cliente)
       <tr>
@@ -26,14 +26,14 @@
               if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/c0.jpg";}
             ?>            
             <img src="{{ $ruta_foto }}" class="listado img-circle" alt="foto del cliente">
-            
           </a>
         </td>
         <td>
           <a href="clientes.detalle">
           <div>
-            <h3>{{$cliente->cliente}}</h3>
-            <span>{{$cliente->ubicacion}}</span><br />
+            <h3>{{ $cliente->cliente }}
+              <small class="text-muted">{{ $cliente->ubicacion }}</small>
+            </h3>
           </div>
           </a>
         </td>  

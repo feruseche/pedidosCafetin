@@ -8,7 +8,8 @@
 
       <div class="form-group">
         <label for="categoria">Categorías</label>
-        <select name="categoria" class="selectpicker" data-width="100%" data-live-search="true" data-style="btn-danger">
+        <select name="categoria" class="selectpicker" data-style="btn-danger" title="Seleccione una Categoría...">
+        
           @foreach($categorias as $categoria)
             <option value="{{ $categoria->id_categoria }}">{{ $categoria->categoria }}</option>
           @endforeach          

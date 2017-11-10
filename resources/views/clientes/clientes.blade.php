@@ -20,7 +20,7 @@
     @foreach($clientes as $cliente)
       <tr>
         <td width="100px">
-          <a href="clientes.detalle">
+          <a href="{{ route('ticket-cliente', ['id' => $cliente->id_cliente]) }}">
             <?php 
               $ruta_img = "img/clientes/c".$cliente->id_cliente.".jpg";
               if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/c0.jpg";}

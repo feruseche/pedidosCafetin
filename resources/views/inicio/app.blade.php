@@ -36,7 +36,7 @@
 
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
-          <!-- Sidebar toggle button-->
+            <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Navegación</span>
           </a>
@@ -51,7 +51,12 @@
               @guest
                 <img src="img/guest.jpg" class="user-image" alt="User Image">
               @else
-                <img src="img/usuarios/u{{ Auth::user()->id}}.jpg" class="user-image" alt="User Image">
+                <?php
+                  $user=Auth::user()->id;
+                  $ruta_img = "img/usuarios/u".$user.".jpg";
+                  if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/usuario/u0.jpg";}
+                ?>      
+                <img src="{{ $ruta_foto }}" class="user-image" alt="User Image">                   
               @endguest
               <span class="hidden-xs">
                 @guest
@@ -69,7 +74,7 @@
                   <img src="img/guest.jpg" class="img-circle" alt="User Image">
                   <p><small>Invitado</small></p>
                 @else
-                  <img src="img/usuarios/u{{ Auth::user()->id}}.jpg" class="img-circle" alt="User Image">
+                  <img src="{{ $ruta_foto }}" class='img-circle' alt='User Image'>
                   <p>{{ Auth::user()->name }}<small>{{ Auth::user()->email }}</small></p>
                 @endguest
               </li>
@@ -91,16 +96,16 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 @guest
-                <div class="pull-left">
-                  <a href="login" class="btn btn-default btn-flat">Login</a>
-                </div>
+                  <div class="pull-left">
+                    <a href="login" class="btn btn-default btn-flat">Login</a>
+                  </div>
                 @else
-                <div class="pull-right">
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </div>
+                  <div class="pull-right">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Logout</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                  </div>
                 @endguest
               </li>
             </ul>
@@ -115,7 +120,7 @@
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-          <!-- Sidebar user panel -->
+          <!-- Sidebar user panel 
             <div class="user-panel">
               <div class="pull-left image">
                 @guest
@@ -133,65 +138,87 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </div>
             </div>
+          -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
+            @guest
+              <li>
+                <a href="categorias.categoria">
+                  <i class="fa fa-cart-plus"></i> <span>Menú del Cafetín </span>
+                  <small class="label pull-right bg-red">PDF</small>
+                </a>
+              </li>
+            @else
             
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>Archivo</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="categorias.categoria"><i class="fa fa-circle-o"></i> Categorias</a></li>
-                <li><a href="productos.producto"><i class="fa fa-circle-o"></i> Productos</a></li>
-                <li><a href="vendedores.vendedores"><i class="fa fa-circle-o"></i> Vendedores</a></li>
-                <li><a href="clientes.clientes"><i class="fa fa-circle-o"></i> Clientes</a></li>
-              </ul>
-            </li>
-            
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Pedidos</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="odontologos.index"><i class="fa fa-circle-o"></i> Pedidos en espera</a></li>
-                <li><a href="odontologos.index"><i class="fa fa-circle-o"></i> Pedidos por cobrar</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-shopping-cart"></i>
-                <span>Informes</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="servicios.index"><i class="fa fa-circle-o"></i> Gerencial</a></li>
-              </ul>
-            </li>
-                       
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-folder"></i> <span>Configurar</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="vademecum.index"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                <li><a href="insertar.categoria"><i class="fa fa-circle-o"></i> Registrar Categorias</a></li>
-                <li><a href="insertar.producto"><i class="fa fa-circle-o"></i> Registrar Nuevos Productos</a></li>
-                <li><a href="insertar.cliente"><i class="fa fa-circle-o"></i> Registrar Nuevos Clientes</a></li>
-              </ul>
-            </li>
-             <li>
-              <a href="#">
-                <i class="fa fa-plus-square"></i> <span>Ayuda </span>
-                <small class="label pull-right bg-red">PDF</small>
-              </a>
-            </li>
-            <li>
+            <?php 
+              $nivel = Auth::user()->nivel;
+              if (($nivel == '0') or ($nivel == '1')){ ?>
+                <li>
+                  <a href="categorias.categoria">
+                    <i class="fa fa-cart-plus"></i> <span>Tomar Pedido </span>
+                    <small class="label pull-right bg-red">PDF</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="clientes.index">
+                    <i class="fa fa-plus-square"></i> <span>Clientes </span>
+                    <small class="label pull-right bg-red">PDF</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="pedido.abierto">
+                    <i class="fa fa-plus-square"></i> <span>Pedido Abierto </span>
+                    <small class="label pull-right bg-red">PDF</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="pedidos.pedido">
+                    <i class="fa fa-plus-square"></i> <span>Pedidos Espera </span>
+                    <small class="label pull-right bg-red">PDF</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="Pedidos.cobrar">
+                    <i class="fa fa-plus-square"></i> <span>Pedidos por Cobrar </span>
+                    <small class="label pull-right bg-red">PDF</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="cuadre.micaja">
+                    <i class="fa fa-plus-square"></i> <span>Cuadre Mi Caja </span>
+                    <small class="label pull-right bg-red">PDF</small>
+                  </a>
+                </li>
+
+              <?php };
+                if ($nivel == '1'){ ?>
+                  <li class="treeview">
+                    <a href="#">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span>Informes</span>
+                       <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="servicios.index"><i class="fa fa-circle-o"></i> Informe Diario</a></li>
+                      <li><a href="servicios.index"><i class="fa fa-circle-o"></i> Informe Mensual</a></li>
+                      <li><a href="servicios.index"><i class="fa fa-circle-o"></i> Informe Anual</a></li>
+                    </ul>
+                  </li>                           
+                  <li class="treeview">
+                    <a href="#">
+                      <i class="fa fa-folder"></i> <span>Configurar</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="vendedores.vendedores"><i class="fa fa-circle-o"></i> Registrar Usuarios</a></li>
+                      <li><a href="insertar.categoria"><i class="fa fa-circle-o"></i> Registrar Categorias</a></li>
+                      <li><a href="insertar.producto"><i class="fa fa-circle-o"></i> Registrar Productos</a></li>
+                    </ul>
+                  </li>
+              <?php }; ?>
+            @endguest      
+            <li>  
               <a href="#">
                 <i class="fa fa-info-circle"></i> <span>Acerca de...</span>
                 <small class="label pull-right bg-yellow">IT</small>

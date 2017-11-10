@@ -4,7 +4,7 @@
 	margin: 0 auto;
 	padding: 0px;
 }
-
+ 
 a{
     outline: none;
 }
@@ -143,3 +143,22 @@ a{
 	font-size: 11px;
 }
 
+/* DISEÑO PARA EL TICKET */
+
+.card-ticket-app{
+	/* width: 320px; */
+	border-color: blue;
+	border-width: 5px;
+	display: inline-block;
+	background-color: white;
+	padding: 3px;
+
+	box-shadow: 5px 5px 20px #999;
+
+}
+
+.card-ticket-app h3{
+	color: red;
+	text-align: right;
+
+}

@@ -20,15 +20,37 @@ class VendedoresController extends Controller
 		if ($request)
 		        {
 		            $query=trim($request->get('searchText'));
-		            $vendedores=DB::table('vendedores')
-			            ->orderBy('vendedor','asc')
-			            ->paginate(10);
+		            $vendedores=DB::table('users')
+			            ->orderBy('name','asc')
+			            ->paginate(100);	
 			        
 			        $nr=$vendedores->count();
 
 			        return view('vendedores.vendedores',["vendedores"=>$vendedores,"searchText"=>$query,"nr"=>$nr]);
 		        }
+	}
 
-    }
+public function filtro(Request $request)
+    {
+
+		if ($request)
+		        {
+		            $query=trim($request->get('searchText'));
+		            $vendedores=DB::table('users')
+						      ->where('name','LIKE','%'.$query.'%')
+			            ->orderBy('name','asc')
+			            ->paginate(100);
+
+			        $nr=$vendedores->count();
+
+			        return view('vendedores.vendedores',["vendedores"=>$vendedores,"searchText"=>$query,"nr"=>$nr]);
+		        }
+
+
+    }   	
+    
+
+
+    
     
 }
