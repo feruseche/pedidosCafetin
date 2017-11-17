@@ -25,14 +25,14 @@
               $ruta_img = "img/clientes/c".$cliente->id_cliente.".jpg";
               if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/c0.jpg";}
             ?>            
-            <img src="{{ $ruta_foto }}" class="listado img-circle" alt="foto del cliente">
+            <img src="{{ $ruta_foto }}" style="width: 75px;" class="img-circle" alt="foto del cliente">
             
           </a>
         </td>
         <td>
           <a href="clientes.detalle">
           <div>
-            <h3>{{$cliente->cliente}}</h3>
+            <h4>{{$cliente->cliente}}</h4>
             <span>{{$cliente->ubicacion}}</span><br />
           </div>
           </a>

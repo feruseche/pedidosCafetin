@@ -39,7 +39,7 @@ route::get('pedidos.porcobrar','PedidosController@filtroporcobrar');
 Route::get('pedidos.pedido-pagado.{id}','PedidosController@pedidopagado');
 route::get('pedidos.corte','PedidosController@corte');
 Route::get('pedido.abierto','TicketController@ticketAbierto');
-
+Route::get('pedidos.detalleCobrar.{id}','PedidosController@detalleCobrado');
 
 // RUTAS DE TICKETS
 

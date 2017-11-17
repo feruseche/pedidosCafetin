@@ -13,12 +13,15 @@
 	$ruta_img = "img/clientes/c".$id_cliente.".jpg";
 	if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/c0.jpg";}
 ?>            
+<div class="content">
 <div class="row">
-<div class="content" class="width: 90%;">
   <div class="table-responsive">
   	<table class="table table-condensed table-striped">
   		<tr><td>
-			<h3 style="text-align: right;">TICKET #000{{ $nt }}</h3>
+  			<div class="col-xs-12 col-sm-12 col-md-6">
+  				<h3 style="text-align: right;">TICKET #000{{ $nt }}</h3>	
+  			</div>
+			
 		</td></tr>
 
 		<tr><td>		
@@ -31,7 +34,7 @@
 					</div>
 					<div style="position: absolute; left: 55px; width: 270px">
 						@foreach ($clientes as $c)
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 4px;">
+							<div class="col-sm-12 col-xs-12" style="padding-top: 4px;">
 								<h4>{{ $c->cliente }}</h4>
 									<small class="text-muted">{{ $c->ubicacion }}</small>
 							</div>
@@ -43,7 +46,7 @@
 
 		<tr><td>
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-6 col-xs-12 col-xs-12">
 					<div class="table-responsive">
 						<table class="table table-striped table-bordered table-condensed table-hover">
 							<thead>
@@ -75,17 +78,23 @@
 
 		<tr><td>
 			<div class="row">
+				<div class="col-md-3 col-xs-6">
 					<div style="text-align: center;">
 						<a href="/categorias.categoria">
-							<button class="btn btn-primary" id="guardar" type="button">Agregar</button>
+							<button class="btn btn-primary" id="guardar" type="button">+ Productos</button>
 						</a>
-						<a href="/clientes.index">
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6">
+<!--						<a href="/clientes.index">
 							<button class="btn btn-danger" id="guardar" type="button">Clientes</button>
 						</a>
+-->						<div style="text-align: center;">
 						<a href="{{ route('cerrar-ticket', ['id' =>  $varid ]) }}">
 							<button class="btn btn-danger" id="guardar" type="button">Cerrar Ticket</button>
 						</a>
 					</div>
+				</div>
 			</div>
 		</td></tr>
 	</table>

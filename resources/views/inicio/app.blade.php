@@ -179,13 +179,13 @@
                   </a>
                 </li>
                 <li>
-                  <a href="Pedidos.cobrar">
+                  <a href="pedidos.porcobrar">
                     <i class="fa fa-plus-square"></i> <span>Pedidos por Cobrar </span>
                     <small class="label pull-right bg-red">PDF</small>
                   </a>
                 </li>
                 <li>
-                  <a href="cuadre.micaja">
+                  <a href="pedidos.corte">
                     <i class="fa fa-plus-square"></i> <span>Cuadre Mi Caja </span>
                     <small class="label pull-right bg-red">PDF</small>
                   </a>

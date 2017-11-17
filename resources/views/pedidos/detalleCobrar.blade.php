@@ -12,6 +12,7 @@
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" class="card-ticket-app">
       @foreach ($cliente as $cli)
         <?php
+          $var=$cli->id_ticket;
           $ruta_img = "img/clientes/c".$cli->id_cliente.".jpg";
           if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/p0.jpg";}
         ?>         
@@ -48,7 +49,6 @@
                 </tr>
                 <th>Producto</th> 
                 <th style="text-align: right;">Subtotal</th>
-                <th style="text-align: right;">Eliminar</th>
               </thead>        
 
               @foreach ($pedidos as $producto)
@@ -59,13 +59,6 @@
                 <tr>
                   <td> {{ $producto->cantidad." * ".$producto->producto }}</td>
                   <td style="text-align: right;"> <?php echo number_format($subt,0,',','.'); ?></td> 
-                  <td style="text-align: right;">
-                    @if($nprod > 1)   
-                      <a href="pedidos.eliminadetalle.<?php echo $producto->id_detalle; ?>">
-                        <button class="btn btn-info">X</button>
-                      </a>
-                    @endif
-                  </td>  
                 </tr>
               @endforeach
 
@@ -77,17 +70,18 @@
 
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div style="text-align: center;">
-            <a href="pedidos.pedido-despacho.<?php echo $var;?>">
-              <button class="btn btn-primary" id="guardar" type="button">Despachar Ticket</button>
-            </a>
-            <a href="pedidos.pedido-elimina.<?php echo $var;?>">
-              <button class="btn btn-danger" id="eliminar" type="button">Eliminar</button>
-            </a>
-            <a href="pedidos.pedido">
-              <button class="btn btn-success" id="pedidos" type="button">Pedidos en Espera</button>
+          <div style="text-align: left; display: inline-block;">
+            <a href="pedidos.pedido-pagado.<?php echo $var;?>">
+              <button class="btn btn-danger" id="eliminar" type="button">Cobrar Ticket</button>
             </a>
           </div>
+
+          <div style="text-align: right; display: inline-block;">
+            <a href="pedidos.porcobrar">
+              <button class="btn btn-success" id="pedidos" type="button">Pedidos por Cobrar</button>
+            </a>
+          </div>
+
         </div>  
       </div>
 

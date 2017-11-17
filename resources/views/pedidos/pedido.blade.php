@@ -1,9 +1,9 @@
 @extends('inicio.app')
 @section('contenido')
 
-<div class="row">
+
 <div class="content">
-  
+<div class="row">  
   <h2 style="text-align: center;">Pedidos por Despachar</h2>
   <div class="table-responsive">
   <table class="table table-condensed table-striped">
@@ -16,7 +16,7 @@
               $ruta_img = "img/clientes/c".$ped->id_cliente.".jpg";
               if(file_exists($ruta_img)){$ruta_foto = $ruta_img;}else{$ruta_foto = "img/clientes/c0.jpg";}
             ?>            
-            <img src="{{ $ruta_foto }}" class="listado img-circle" alt="foto del cliente">
+            <img src="{{ $ruta_foto }}" style="width:100px;" class="img-circle" alt="foto del cliente">
           </a>
         </td>
         <td>

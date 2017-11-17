@@ -5,13 +5,14 @@
   
 <div class="content">
 
+<div class="col-md-6 col-xs-12">
 <div class="table-responsive">
   <table class="table table-condensed table-striped">
     
     @foreach($productos as $producto)    
     
       <tr>
-        <td width="120px">
+        <td width="100px">
           <a href="{{ route('articulo', ['id' => $producto->id_producto]) }}">
               <?php
                 $ruta_img = "img/productos/p".$producto->id_producto.".jpg";
@@ -23,8 +24,8 @@
         <td>
           <a href="{{ route('articulo', ['id' => $producto->id_producto]) }}">
           <div>
-            <h3>{{ $producto->producto }}</h3>
-            <span style="text-align: right;"><h3><?php echo "$ ".number_format($producto->precio,0,',','.'); ?></h3></span>
+            <h4>{{ $producto->producto }}</h4>
+            <span style="text-align: right;"><h4><?php echo "$ ".number_format($producto->precio,0,',','.'); ?></h4></span>
           </div>
           </a>
         </td>  
@@ -38,5 +39,5 @@
 
 </div>
 </div>
-
+</div>
 @endsection
